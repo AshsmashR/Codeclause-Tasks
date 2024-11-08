@@ -1,0 +1,23 @@
+Image Segmentation with U-Net for Mask Generation
+This project utilizes a U-Net model architecture to perform image segmentation on a dataset of images, generating binary masks for object detection and classification. The U-Net model architecture consists of:
+
+Encoder (Contracting Path):
+
+Sequential layers of convolution, dropout, and max-pooling downsample the input image, progressively capturing context and features at different scales.
+Each downsampling step doubles the filter count, allowing the model to capture more complex features at deeper levels.
+Bottleneck:
+
+The deepest layer in the network, where features are learned at the highest level of abstraction, capturing the core patterns essential for mask generation.
+Decoder (Expansive Path):
+
+Up-convolution (transpose convolution) layers reverse the encoding process, gradually reconstructing the spatial resolution of the image.
+Skip connections are used to concatenate corresponding layers from the encoder, helping retain high-resolution details from earlier stages.
+Output Layer:
+
+A Conv2D layer with a sigmoid activation function generates a binary mask, indicating the regions of interest within the input image.
+Key Features
+Data Preprocessing: Images and their corresponding masks are resized, normalized, and thresholded to ensure consistency across the dataset.
+Visualization: Functions for visualizing input images, true masks, and predicted masks help evaluate model performance.
+Prediction: Custom functions for single and batch predictions enable real-time mask generation on test images.
+Performance Tracking: Plots for training and validation loss and accuracy provide insights into model convergence.
+The U-Net model is trained to segment regions in images with high accuracy, using TensorFlow and OpenCV for efficient data handling and visualization.
